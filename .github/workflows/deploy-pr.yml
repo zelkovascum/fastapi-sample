@@ -69,12 +69,13 @@ jobs:
         # with:
         #   images: ${{ needs.build-and-push-image.outputs.tags }}
         #   manifest-file: app/manifest.json
+
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.REPO_GITHUB_TOKEN }} # レクチャー内では、Personal Access Tokenを発行して fastapi-sampleレポから kubernetes-basicsレポコードをプッシュできる権限を与えました。
+          token: ${{ secrets.REPO_GITHUB_TOKEN }}
           title: 'Update fastapi-sample'
-          base: v2.0-rc
+          # base: v2.0-rc
           draft: true
           body: |
             # Changes
